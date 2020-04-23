@@ -15,15 +15,17 @@ export class AccesoDatosService {
 
   private static singleton:AccesoDatosService;
 
-  public static getInstancia():AccesoDatosService{
-    if(!AccesoDatosService.singleton){
-
+    public getInstancia(){
+    if(AccesoDatosService.singleton){
+      AccesoDatosService.singleton=new AccesoDatosService();
+      console.log("Ya esta instanciado");
     }
-    return AccesoDatosService.singleton;
+    console.log("Instanciando base de datos")
+    return AccesoDatosService.singleton ;
   }
 
 
-  constructor(public db: AngularFirestore) {
+   private constructor(public db: AngularFirestore) {
 
 
     this.articuloCollection = this.db.collection('Articulo');

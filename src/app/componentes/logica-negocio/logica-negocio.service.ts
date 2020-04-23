@@ -19,6 +19,7 @@ export class LogicaNegocioService {
      else{
        this.articulo.iva=16;
      }
+     this.accesoDatosService.getInstancia();
      this.accesoDatosService.addArticulo(this.articulo);
      console.log(this.articulo);
      this.articulo = {} as Articulo;
